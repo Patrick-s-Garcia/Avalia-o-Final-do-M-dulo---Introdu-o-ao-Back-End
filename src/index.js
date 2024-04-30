@@ -34,11 +34,11 @@ app.post('/signup',async (request,response)=>{
 
     const data = request.body
   
-    const nome = data.nome
+    const name = data.name
     const email = data.email
     const password = data.password
   
-    if(!nome){
+    if(!name){
         response.status(400).send(JSON.stringify({ Mensagem: "Por favor, verifique se passou o nome" }))
       }
 
@@ -60,7 +60,7 @@ app.post('/signup',async (request,response)=>{
     
     let newUser ={
       id : nextPerson,
-      nome: data.nome,
+      name: data.name,
       email : data.email, 
       password :encryptPassword
     }
@@ -69,7 +69,7 @@ app.post('/signup',async (request,response)=>{
   
     nextPerson++
   
-    response.status(201).send(JSON.stringify({ Mensagem: `Seja bem vindo ${nome} ! Pessoa usuária registrada com sucesso!` }))
+    response.status(201).send(JSON.stringify({ Mensagem: `Seja bem vindo ${name} ! Pessoa usuária registrada com sucesso!` }))
   
   })
 
@@ -103,9 +103,10 @@ app.post('/login',async(request,response)=>{
   
     emailLoggedIn = emailCheck.email
 
-    response.status(200).send(JSON.stringify({ Mensagem: `Seja bem vindo ${emailCheck.nome} ! Pessoa usuária logada com sucesso!` }))
+    response.status(200).send(JSON.stringify({ Mensagem: `Seja bem vindo ${emailCheck.name} ! Pessoa usuária logada com sucesso!` }))
     
   })
+
 
 
 // -------------------------------------RECADOS--------------------------------------
@@ -147,16 +148,6 @@ app.post('/massage', (request, response) => {
 
 
 
-})
-
-app.get('/carros', (request, response) => {
-
-    if(carros.length === 0){
-        response.status(400).send(JSON.stringify("Mensagem: Não existem carros registrados."))
-    }
-    const dadosMapeados = carros.map((carro) => `| ID: ${carro.id} | Modelo: ${carro.modelo} | Marca: ${carro.marca} | Ano: ${carro.ano} | Cor: ${carro.cor} | Preço: ${carro.preco} |` )
-
-    response.status(200).send(dadosMapeados)
 })
 
 app.get('/massage/:email', (request, response) => {
