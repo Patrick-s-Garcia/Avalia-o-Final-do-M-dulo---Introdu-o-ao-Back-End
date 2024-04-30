@@ -5,3 +5,6 @@ de um repositório de recados, associados a usuários autenticados por meio de e
 e senha criptografada. Com esta API, os usuários podem facilmente criar novos recados, <br>
 ler os existentes, atualizá-los conforme necessário e também remover aqueles que não são<br>
 mais necessários.
+<br>
+<br>
+Link documentação: https://documenter.getpostman.com/view/34327299/2sA3JDg4ru
